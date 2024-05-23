@@ -1,0 +1,19 @@
+{
+  "name": "Add Notes",
+  "description": "a chrome extension that will allow users to save notes",
+  "version": "0.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/popup.js", "scripts/script.js"],
+      "css": ["scripts/style.css"],
+      "matches": ["*://*/*"]
+    }
+  ]
+}
