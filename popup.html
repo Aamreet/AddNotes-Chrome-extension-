@@ -3,6 +3,36 @@
 <head>
   <title>Notepad</title>
   <style>
+   
+
+    /* utilities */
+    .display-none{
+       display:none;
+    }
+
+    .border-rounded{
+      border: 2px solid rgba(56, 51, 51, 0.362);
+      border-radius: 4px;
+    }
+    .flex{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .flex-col{
+      flex-direction: column;
+    }
+
+    .container{
+       margin-top: 10px;
+       padding: 20px;
+    }
+    .sub-container{
+       background-color: rgba(200, 211, 248, 0.86);
+    }
+
+    /* selectors */
+
     body {
       width: 300px;
       padding: 10px;
@@ -14,20 +44,44 @@
     }
     button {
       margin-top: 10px;
-      display: block;
+      display: inline-block;
     }
+    .title{
+      padding: 5px;
+      background-color: #eee;
+      font-weight: 400;
+      color: #181515e5;
+    }
+
+    .val{
+       margin-top: -10px;
+       padding: 5px;
+       text-align: start;
+    }
+
+   
   </style>
 </head>
 <body>
-  <label for="heading">Heading:</label>
-  <br>
-  <input id="key" type="text" >
-  <textarea id="value"></textarea>
-  <button id="save">Save</button>
-  <!-- <button id="download">Download</button> -->
+  <div >
+    <label for="heading">Heading:</label>
+    <br>
+    <input id="key" type="text" >
+    <textarea id="value"></textarea>
+    <div>
+  
+    <button id="save">Save</button>
+    <button id="show">Show</button>
+  </div>
+
+  <div id="r-list" class=" container show border-rounded flex-col display-none">
+    <!-- <div class="sub-container">
+      <h2 class="title">News</h1>
+      <p class="val">Hey how are you Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat tempore accusantium, possimus, dicta labore facere adipisci nemo harum, reiciendis inventore ad distinctio provident officiis maxime corrupti veritatis! Nam, id odit? </p>
+    </div>  -->
+  </div>
+ 
   <script src="popup.js"></script>
-  <!-- <script>
-    console.log("hii from script");
-  </script> -->
+  <!-- <script src="ui.js"></script> -->
 </body>
 </html>
