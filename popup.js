@@ -1,62 +1,53 @@
-
-
-
-// // document.addEventListener('DOMContentLoaded', function () {
-// //     console.log("popup loaded");
-// // });
-
-// console.log("popups");
-// let body = document.querySelector('#value');
-// console.log(body.value);
-
-// const handleSubmit = () => {
-
-//     let state = JSON.parse(localStorage.getItem('state')) || {
-
-//     }
-
-//     let head = document.querySelector('#key');
-
-//     let title = head.value;
-//     let value = body.value;
-//     console.log(title, value);
-
-//     // let newState = { ...state, [title]: value };
-
-
-//     // localStorage.setItem("state", JSON.stringify(newState));
-//     // head.value = "";
-//     // body.value = "";
-
-// }
-
-
-
-
-// document.querySelector('#save').addEventListener("click", handleSubmit);
-// console.log("hiiiii ");
-
-
 document.addEventListener('DOMContentLoaded', function () {
     console.log("popup loaded");
 
     let body = document.querySelector('#value');
     let head = document.querySelector('#key');
+    let saveButton = document.querySelector('#save');
 
-    const handleSubmit = () => {
-        let state = JSON.parse(localStorage.getItem('state')) || {};
+    // Open connection to IndexedDB database
+    const openDB = indexedDB.open('myDatabase', 1);
 
-        let title = head.value;
-        let value = body.value;
-        // console.log(title, value);
+    // Handle database upgrade (create object store)
+    openDB.onupgradeneeded = function(event) {
+        const db = event.target.result;
+        const objectStore = db.createObjectStore('data', { keyPath: 'title' });
+    };
 
-        let newState = { ...state, [title]: value };
+    // Handle successful database opening
+    openDB.onsuccess = function(event) {
+        const db = event.target.result;
 
-        localStorage.setItem("state", JSON.stringify(newState));
-        head.value = "";
-        body.value = "";
-    }
+        const handleSubmit = () => {
+            // Retrieve the transaction and object store
+            const transaction = db.transaction(['data'], 'readwrite');
+            const objectStore = transaction.objectStore('data');
 
-    document.querySelector('#save').addEventListener("click", handleSubmit);
-   
+            let title = head.value;
+            let value = body.value;
+
+            // Add data to the object store
+            const request = objectStore.put({ title: title, value: value });
+
+            // Handle successful addition of data
+            request.onsuccess = function(event) {
+                console.log('Data added to IndexedDB');
+            };
+
+            // Handle errors
+            request.onerror = function(event) {
+                console.error('Error adding data to IndexedDB');
+            };
+
+            head.value = "";
+            body.value = "";
+        };
+
+        saveButton.addEventListener("click", handleSubmit);
+    };
+
+    // Handle database opening error
+    openDB.onerror = function(event) {
+        console.error('Error opening IndexedDB');
+    };
 });
