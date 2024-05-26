@@ -13,31 +13,47 @@
   }
   
   h2{
-    width:50%;
+    width:80%;
     text-align: center;
     padding: 5px;
+    text-shadow: 2px 2px 4px rgb(144, 136, 136);
   }
   label{
     color: rgba(22, 8, 0, 0.915);
   }
 
   input {
+ 
     margin-top: 10px;
     width: 80%;
+    opacity: 0.8;
     border: 1px solid #5855fe76;
     border-radius: 4px;
     outline: none;
     padding: 5px;
   }
+  input:focus-visible{
+    box-shadow: -1px -1px 2px black;
+    opacity: 1; 
+  }
+  /* input:active{
+    box-shadow: -1px -1px 2px black;
+    opacity: 0.7;
+  } */
 
   textarea {
     margin-top: 8px;
+    opacity: 0.8;
     border: 1px solid #5855fe76;
     border-radius: 4px;
     outline: none;
     width: 90%;
     height: 100px;
     padding: 10px;
+  }
+  textarea:focus-visible{
+    box-shadow: -1px -1px 2px black;
+    opacity: 1; 
   }
 
   button {
@@ -65,20 +81,6 @@
 
   /* utilities */
 
-
-  .banner{
-    display: flex;
-    /* background-color: red; */
-    justify-content: center;
-  }
-  .circle{
-     margin-left: 5px;
-     width: 20px;
-     height: 20px;
-     background-color:rgb(22, 21, 21);
-     border: 1px solid black;
-     border-radius: 50%;
-  }
   .screen{
     border-radius: 4px;
     width: 80%;
@@ -91,45 +93,37 @@
   .display-none {
     display: none;
   }
-
-  .border-rounded {
-    border: 2px solid rgba(56, 51, 51, 0.362);
-    border-radius: 4px;
-  }
-
-  .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .flex-col {
-    flex-direction: column;
-  }
-
   .container {
     margin-top: 10px;
     padding: 20px;
+    border: 1px solid whitesmoke;
+    border-radius: 4px;
+    background-color: #f2e9f3ac;
   }
 
   .sub-container {
-    background-color: rgba(200, 211, 248, 0.86);
+    background-color: rgba(209, 214, 229, 0.86);
+    margin-bottom: 20px;
   }
 
-
+  .title-container{
+     display: flex;
+  }
   /* selectors */
-
-
-
   .title {
-    padding: 5px;
-    background-color: #eee;
+    width: 90%;
+    background-color: #d0c6c6;
     font-weight: 400;
     color: #181515e5;
   }
 
+  .remove{
+    background-color: red;
+    width: 8%;
+    height: 22px;
+    padding: 1px;
+  }
+
   .val {
-    margin-top: -10px;
-    padding: 5px;
-    text-align: start;
+    padding: 10px;
   }

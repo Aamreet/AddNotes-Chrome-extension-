@@ -7,10 +7,7 @@
 </head>
 
 <body>
-  <div class="banner">
-    <h2 class="t1">Add Notes</h2>
-    <button class="circle"></button>
-  </div>
+  <h2 class="t1">Add Notes</h2>
   <div class="screen">
     <label for="heading">Title:</label>
     <br>
@@ -26,22 +23,11 @@
     <button id="delete">Delete Record</button>
   </div>
 
-  <div id="r-list" class=" container show border-rounded flex-col display-none">
+  <div id="r-list" class="container display-none">
 
   </div>
   <script type="module" src="./scripts/popup.js"></script>
-  <script>
-    const circle = document.querySelector(".circle");
-    const t1 = document.querySelector(".t1");
-    circle.addEventListener("click", () => {
-      if (t1.innerText == "Add Notes") {
-        t1.innerText = '';
-      }
-      else if ( t1.innerText == "") {
-        t1.innerText ='Add Notes';
-      }
-    });
-  </script>
+  <!-- <script type="module" src="./scripts/handleDelete.js"></script> -->
 </body>
 
 </html>
