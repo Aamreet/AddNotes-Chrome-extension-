@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Notepad</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-  <div >
-    <label for="heading">Heading:</label>
+  <div class="banner">
+    <h2 class="t1">Add Notes</h2>
+    <button class="circle"></button>
+  </div>
+  <div class="screen">
+    <label for="heading">Title:</label>
     <br>
-    <input id="key" type="text" >
+    <input id="key" type="text">
+    <br><br>
+    <label for="body">Body:</label>
     <textarea id="value"></textarea>
-    <div>
-  
+  </div>
+
+  <div>
     <button id="save">Save</button>
     <button id="show">Show</button>
+    <button id="delete">Delete Record</button>
   </div>
 
   <div id="r-list" class=" container show border-rounded flex-col display-none">
+
   </div>
- 
-  <script type="module" src="./scripts/popup.js" ></script>
+  <script type="module" src="./scripts/popup.js"></script>
+  <script>
+    const circle = document.querySelector(".circle");
+    const t1 = document.querySelector(".t1");
+    circle.addEventListener("click", () => {
+      if (t1.innerText == "Add Notes") {
+        t1.innerText = '';
+      }
+      else if ( t1.innerText == "") {
+        t1.innerText ='Add Notes';
+      }
+    });
+  </script>
 </body>
+
 </html>
